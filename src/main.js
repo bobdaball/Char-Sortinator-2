@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import InputForm from './Form';
+import InputForm from './InputForm';
 
 document.addEventListener('DOMContentLoaded', function() {
   ReactDOM.render(

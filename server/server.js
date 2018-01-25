@@ -18,7 +18,14 @@ app.use(webpackDevMiddleware(compiler, {
   historyApiFallback: true,
 }));
 
-const server = app.listen(3000, function() {
+app.post('/addItem', (req,res) => {
+  console.log('hello there');
+  console.log(req.body, 'req.body');
+  res.send(req.body);
+})
+
+
+const server = app.listen(8080, function() {
   const host = server.address().address;
   const port = server.address().port;
   console.log('Example app listening at http://%s:%s', host, port);
