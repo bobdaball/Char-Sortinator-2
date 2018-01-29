@@ -23,7 +23,9 @@ app.use(webpackDevMiddleware(compiler, {
 app.post('/addItem', (req,res) => {
   console.log('hello there');
   console.log(req.body, 'req.body');
-  res.send(req.body);
+  let response = req.body.string.split('').sort().reverse().join('');
+  console.log(response, 'response');
+  res.send(response);
 })
 
 

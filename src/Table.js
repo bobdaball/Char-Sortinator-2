@@ -6,16 +6,24 @@ class Table extends Component {
     super(props, context);
   }
 
- componentDidMount() {
-  console.log('this props in table', this.props);
- }
+  generateRows() {
+    return
+  }
+
+  componentWillMount() {
+  }
+
   render() {
     return (
       <Table>
       {
-        this.props.stringPairs.map(row => {
-          return <TableRow row={row} />
-        })
+        this.props.stringPairs.length ?
+
+          this.props.stringPairs.map(row => {
+            return <TableRow row={row} />
+          })
+        :
+          <div></div>
       }
       </Table>
     );

@@ -20,10 +20,10 @@ class InputForm extends Component {
   handleSubmit(e) {
     console.log(this.state.keyInput,'this.state.keyInput');
     e.preventDefault();
-    axios.post('/addItem', this.state.keyInput)
+    axios.post('/addItem', {string: this.state.keyInput})
     .then( res => {
       let copy = this.state.strings.slice();
-      copy.push({string: this.state.keyInput, sortedString: res});
+      copy.push({string: this.state.keyInput, sortedString: res.data});
       this.setState({
         strings: copy,
       })
@@ -43,7 +43,12 @@ class InputForm extends Component {
           </label>
           <input type="submit" value="Submit" />
         </form>
-
+          {
+            this.state.strings.length > 1 ?
+            <Table stringPairs={this.state.strings}/>
+            :
+            <div></div>
+          }
         </div>
       </div>
     );
@@ -51,9 +56,3 @@ class InputForm extends Component {
 }
 
 export default InputForm;
-// {
-//           this.state.strings.length > 0 ?
-//           <Table stringPairs={this.state.strings}/>
-//           :
-//           <div></div>
-//         }
